@@ -20,19 +20,6 @@ class AppBootHook {
     //   this.app.config.coreMiddleware.splice(statusIdx + 1, 0, 'limit');
 
     // 配置打包后的exe文件的外部配置
-    try {
-      const url = path.join(process.cwd(), '/config.js');
-      fs.exists(url, isExist => {
-        this.app.logger.info('123 config isExist : ', isExist);
-
-        if (isExist) {
-          const config = require(url);
-          this.app.logger.info('123 config', config);
-        }
-      });
-    } catch (error) {
-      this.app.logger.info('123 config error : ', error);
-    }
   }
 
   async didLoad() {
