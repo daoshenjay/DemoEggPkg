@@ -1,7 +1,7 @@
 /* eslint-disable strict */
 //  用于自定义启动时的初始化工作，在自定义生命周期函数中不建议做太耗时的操作，框架会有启动的超时检测
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // app.js
 class AppBootHook {
@@ -18,23 +18,19 @@ class AppBootHook {
     //   // 例如：插入一个中间件到框架的 coreMiddleware 之间
     //   const statusIdx = this.app.config.coreMiddleware.indexOf('status');
     //   this.app.config.coreMiddleware.splice(statusIdx + 1, 0, 'limit');
-
     // 配置打包后的exe文件的外部配置
   }
 
   async didLoad() {
     // 所有的配置已经加载完毕
     // 可以用来加载应用自定义的文件，启动自定义的服务
-
     //   // 例如：创建自定义应用的示例
     //   this.app.queue = new Queue(this.app.config.queue);
     //   await this.app.queue.init();
-
     //   // 例如：加载自定义的目录,用于加载一个目录下的文件到 app
     //   this.app.loader.loadToContext(path.join(__dirname, 'app/tasks'), 'tasks', {
     //     fieldClass: 'tasksClasses',
     //   });
-
   }
 
   async willReady() {
@@ -64,9 +60,9 @@ class AppBootHook {
     // const chokidar = new Chokidar(this.app);
     // await chokidar.startWatch();
 
-    this.app.logger.info('this.app.config.env', this.app.config.env);
+    this.app.logger.info("this.app.config.env", this.app.config.env);
+    console.log("config.test : ", this.app.config.test);
   }
-
 }
 
 module.exports = AppBootHook;
